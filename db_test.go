@@ -81,7 +81,7 @@ func TestDB_Delete(t *testing.T) {
 
 	value, err = db.Get([]byte("test_key"))
 	assert.Nil(t, value)
-	require.ErrorIs(t, err, KeyNotFoundErr)
+	require.ErrorIs(t, err, ErrKeyNotFound)
 
 }
 
@@ -102,5 +102,5 @@ func TestDB_Delete_Merge(t *testing.T) {
 
 	value, err := db.Get([]byte("test_key"))
 	assert.Nil(t, value)
-	assert.Equal(t, KeyNotFoundErr, err)
+	assert.Equal(t, ErrKeyNotFound, err)
 }
